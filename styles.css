@@ -9,8 +9,7 @@ body {
     background: linear-gradient(135deg, #0a1628 0%, #1a3a52 50%, #0f2438 100%);
     min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     padding: 20px;
     position: relative;
     overflow: hidden;
@@ -56,9 +55,13 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
+    margin: 0 auto;
     position: relative;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 .header-penguin {
@@ -66,6 +69,7 @@ body {
     font-size: 4em;
     margin-bottom: 20px;
     animation: waddle 1.5s ease-in-out infinite;
+    flex-shrink: 0;
 }
 
 @keyframes waddle {
@@ -83,25 +87,63 @@ body {
 h1 {
     text-align: center;
     color: #e0f4ff;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-size: 3em;
     text-shadow: 0 0 20px rgba(0, 150, 255, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.8);
     font-weight: bold;
+    flex-shrink: 0;
 }
 
 .tagline {
     text-align: center;
     color: #7dd3ff;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-size: 1.1em;
     text-shadow: 0 0 10px rgba(0, 150, 255, 0.3);
     font-style: italic;
+    flex-shrink: 0;
+}
+
+.clocks-container {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+
+/* Custom scrollbar styling */
+.clocks-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.clocks-container::-webkit-scrollbar-track {
+    background: rgba(77, 208, 255, 0.1);
+    border-radius: 6px;
+}
+
+.clocks-container::-webkit-scrollbar-thumb {
+    background: #4dd0ff;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(77, 208, 255, 0.5);
+}
+
+.clocks-container::-webkit-scrollbar-thumb:hover {
+    background: #7dd3ff;
+    box-shadow: 0 0 15px rgba(77, 208, 255, 0.8);
+}
+
+/* Firefox scrollbar */
+.clocks-container {
+    scrollbar-color: #4dd0ff rgba(77, 208, 255, 0.1);
+    scrollbar-width: thin;
 }
 
 .clocks-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+    padding: 10px 0;
 }
 
 .clock-card {
@@ -172,61 +214,99 @@ h1 {
 }
 
 .timezone {
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: #7dd3ff;
-    margin-bottom: 18px;
+    margin-bottom: 15px;
     position: relative;
     z-index: 2;
     font-weight: 500;
 }
 
 .time {
-    font-size: 2.8em;
+    font-size: 2.5em;
     font-weight: bold;
     color: #4dd0ff;
     font-family: 'Courier New', monospace;
-    letter-spacing: 3px;
-    margin-bottom: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
     text-shadow: 0 0 10px rgba(77, 208, 255, 0.6);
     position: relative;
     z-index: 2;
 }
 
 .date {
-    font-size: 1em;
+    font-size: 0.9em;
     color: #7dd3ff;
     font-family: 'Courier New', monospace;
     position: relative;
     z-index: 2;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    .clocks-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+    }
+
     h1 {
+        font-size: 2.5em;
+    }
+
+    .header-penguin {
+        font-size: 3.5em;
+    }
+
+    .time {
         font-size: 2.2em;
+    }
+
+    .city-name {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        height: auto;
+        max-height: 100vh;
+    }
+
+    h1 {
+        font-size: 2em;
     }
 
     .header-penguin {
         font-size: 3em;
+        margin-bottom: 15px;
     }
-    
+
+    .tagline {
+        margin-bottom: 20px;
+        font-size: 1em;
+    }
+
     .clocks-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 15px;
     }
     
     .time {
-        font-size: 2.2em;
+        font-size: 2em;
     }
     
     .city-name {
         font-size: 1.3em;
     }
 
-    .tagline {
-        font-size: 0.95em;
-    }
-
     .city-emoji {
         font-size: 2em;
+    }
+
+    .clocks-container {
+        margin-bottom: 10px;
     }
 }
