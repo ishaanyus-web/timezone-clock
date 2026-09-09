@@ -1,18 +1,34 @@
 const timezones = [
     { city: 'New York', timezone: 'America/New_York', emoji: '🗽' },
     { city: 'Los Angeles', timezone: 'America/Los_Angeles', emoji: '🏖️' },
+    { city: 'Mexico City', timezone: 'America/Mexico_City', emoji: '🇲🇽' },
+    { city: 'Toronto', timezone: 'America/Toronto', emoji: '🍁' },
     { city: 'London', timezone: 'Europe/London', emoji: '🇬🇧' },
     { city: 'Paris', timezone: 'Europe/Paris', emoji: '🗼' },
-    { city: 'Tokyo', timezone: 'Asia/Tokyo', emoji: '🗾' },
-    { city: 'Sydney', timezone: 'Australia/Sydney', emoji: '🇦🇺' },
+    { city: 'Berlin', timezone: 'Europe/Berlin', emoji: '🇩🇪' },
+    { city: 'Moscow', timezone: 'Europe/Moscow', emoji: '🏛️' },
     { city: 'Dubai', timezone: 'Asia/Dubai', emoji: '🌅' },
-    { city: 'Singapore', timezone: 'Asia/Singapore', emoji: '🇸🇬' }
+    { city: 'Delhi', timezone: 'Asia/Kolkata', emoji: '🇮🇳' },
+    { city: 'Bangkok', timezone: 'Asia/Bangkok', emoji: '🇹🇭' },
+    { city: 'Singapore', timezone: 'Asia/Singapore', emoji: '🇸🇬' },
+    { city: 'Hong Kong', timezone: 'Asia/Hong_Kong', emoji: '🏙️' },
+    { city: 'Tokyo', timezone: 'Asia/Tokyo', emoji: '🗾' },
+    { city: 'Seoul', timezone: 'Asia/Seoul', emoji: '🇰🇷' },
+    { city: 'Sydney', timezone: 'Australia/Sydney', emoji: '🇦🇺' },
+    { city: 'Auckland', timezone: 'Pacific/Auckland', emoji: '🇳🇿' },
+    { city: 'Honolulu', timezone: 'Pacific/Honolulu', emoji: '🌺' },
+    { city: 'São Paulo', timezone: 'America/Sao_Paulo', emoji: '🇧🇷' },
+    { city: 'Buenos Aires', timezone: 'America/Argentina/Buenos_Aires', emoji: '🇦🇷' },
+    { city: 'Istanbul', timezone: 'Europe/Istanbul', emoji: '🕌' },
+    { city: 'Cairo', timezone: 'Africa/Cairo', emoji: '🇪🇬' },
+    { city: 'Johannesburg', timezone: 'Africa/Johannesburg', emoji: '🇿🇦' },
+    { city: 'Lagos', timezone: 'Africa/Lagos', emoji: '🇳🇬' }
 ];
 
 function createClockCard(city, timezone, emoji) {
     return `
         <div class="clock-card">
-            <div style="font-size: 2.5em; margin-bottom: 10px;">${emoji}</div>
+            <div class="city-emoji">${emoji}</div>
             <div class="city-name">${city}</div>
             <div class="timezone">${timezone}</div>
             <div class="time" id="time-${timezone}">--:--:--</div>
